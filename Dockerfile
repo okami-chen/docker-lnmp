@@ -22,7 +22,7 @@ RUN tar zxf lnmp1.7.tar.gz && cd lnmp1.7 \
     && unzip 5.3.4.zip && cd phpredis-5.3.4 \
     && phpize && ./configure --with-php-config=/usr/local/php/bin/php-config \
     && make && make install \
-    && echo "extension=redis.so" > /usr/local/php/conf.d/redis.ini
+    && echo "extension=redis.so" > /usr/local/php/conf.d/redis.ini \
     && wget https://github.com/swoole/swoole-src/archive/master.tar.gz \
     && tar zxvf master.tar.gz \
     && mv swoole-src* swoole-src && cd swoole-src \
