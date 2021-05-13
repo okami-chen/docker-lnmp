@@ -3,7 +3,7 @@ LABEL Author="Okami-Chen"
 LABEL Version="fpm-7.4"
 LABEL Description="PHP FPM 7.4"
 WORKDIR /tmp
-ADD ./source.list /etc/apt/source.list
+COPY ./sources.list /etc/apt/sources.list
 COPY ./lnmp.conf /tmp/lnmp.conf
 RUN apt-get update -y --fix-missing && apt-get upgrade -y && apt-get -y install wget \
     && http://soft.vpser.net/lnmp/lnmp1.7.tar.gz -cO lnmp1.7.tar.gz \
