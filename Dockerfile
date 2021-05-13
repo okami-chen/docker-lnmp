@@ -10,6 +10,7 @@ RUN tar zxf lnmp1.7.tar.gz && cd lnmp1.7 \
     && cat /tmp/lnmp.conf > /tmp/lnmp1.7/lnmp.conf \
     && sed -i '/s/php-7.4.12/php-7.4.19/g' /tmp/lnmp1.7/include/version.sh \
     && LNMP_Auto="y" DBSelect="0" PHPSelect="10" SelectMalloc="1" ./install.sh lnmp \
+    && sed -i 's/disable_functions/# disable_functions/g' /usr/local/php/etc/php.ini \
     && php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');" \
     && php composer-setup.php \
     && php -r "unlink('composer-setup.php');" \
