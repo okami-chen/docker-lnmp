@@ -4,10 +4,12 @@ LABEL Version="fpm-7.4"
 LABEL Description="PHP FPM 7.4"
 WORKDIR /tmp
 ADD ./source.list /etc/apt/source.list
+COPY ./lnmp.conf /tmp/lnmp.conf
 RUN apt-get update -y --fix-missing && apt-get upgrade -y && apt-get -y install wget \
-    && wget -c http://mirrors.linuxeye.com/oneinstack-full.tar.gz \
-    && tar xzf oneinstack-full.tar.gz \
-    && ./oneinstack/install.sh --nginx_option 1 --php_option 9 --phpcache_option 1 --php_extensions fileinfo,redis,swoole \
+    && http://soft.vpser.net/lnmp/lnmp1.7.tar.gz -cO lnmp1.7.tar.gz \
+    && tar zxf lnmp1.7.tar.gz && cd lnmp1.7 \
+    && cat /tmp/lnmp.conf > /tmp/lnmp1.7/lnmp.conf \
+    && LNMP_Auto="y" DBSelect="0" PHPSelect="10" SelectMalloc="1" ./install.sh lnmp \
     && php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');" \
     && php composer-setup.php \
     && php -r "unlink('composer-setup.php');" \
