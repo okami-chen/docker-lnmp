@@ -5,9 +5,8 @@ LABEL Description="PHP FPM 7.4"
 WORKDIR /tmp
 COPY ./sources.list /etc/apt/sources.list
 COPY ./lnmp.conf /tmp/lnmp.conf
-RUN apt-get update -y --fix-missing && apt-get upgrade -y && apt-get -y install wget \
-    && http://soft.vpser.net/lnmp/lnmp1.7.tar.gz -cO lnmp1.7.tar.gz \
-    && tar zxf lnmp1.7.tar.gz && cd lnmp1.7 \
+COPY ./lnmp1.7.tar.gz /tmp/lnmp1.7.tar.gz
+RUN tar zxf lnmp1.7.tar.gz && cd lnmp1.7 \
     && cat /tmp/lnmp.conf > /tmp/lnmp1.7/lnmp.conf \
     && LNMP_Auto="y" DBSelect="0" PHPSelect="10" SelectMalloc="1" ./install.sh lnmp \
     && php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');" \
