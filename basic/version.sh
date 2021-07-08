@@ -22,7 +22,7 @@ Libzip_Ver='libzip-1.3.2'
 Luajit_Ver='luajit2-2.1-20190329'
 LuaNginxModule='lua-nginx-module-0.10.14'
 NgxDevelKit='ngx_devel_kit-0.3.1'
-Nginx_Ver='nginx-1.18.0'
+Nginx_Ver='nginx-1.20.1'
 if [ "${DBSelect}" = "1" ]; then
     Mysql_Ver='mysql-5.1.73'
 elif [ "${DBSelect}" = "2" ]; then
@@ -63,14 +63,14 @@ elif [ "${PHPSelect}" = "8" ]; then
 elif [ "${PHPSelect}" = "9" ]; then
     Php_Ver='php-7.3.23'
 elif [ "${PHPSelect}" = "10" ]; then
-    Php_Ver='php-7.4.19'
+    Php_Ver='php-7.4.21'
 fi
 if [[ "${PHPSelect}" =~ ^[123]$ ]]; then
     PhpMyAdmin_Ver='phpMyAdmin-4.0.10.20-all-languages'
 elif [[ "${PHPSelect}" =~ ^[456]$ ]]; then
     PhpMyAdmin_Ver='phpMyAdmin-4.9.7-all-languages'
 else
-    PhpMyAdmin_Ver='phpMyAdmin-5.0.4-all-languages'
+    PhpMyAdmin_Ver='phpMyAdmin-5.1.1-all-languages'
 fi
 APR_Ver='apr-1.7.0'
 APR_Util_Ver='apr-util-1.6.1'
