@@ -11,8 +11,8 @@ apt-get -y install supervisor rsyslog cron \
 && make && make install \
 && echo "extension=swoole.so" > /usr/local/php/conf.d/swoole.ini \
 && rm -rf /var/cache/apk/* /tmp/* /usr/share/man /var/lib/apt/lists/* \
-&& sed -i '/s/session/#session/g' /etc/pam.d/crond
+&& sed -i 's/session/#session/g' /etc/pam.d/crond
 
-# && sed -i '/s/php-7.4.12/php-7.4.19/g' /tmp/lnmp1.7/include/version.sh \
+# && sed -i 's/php-7.4.12/php-7.4.19/g' /tmp/lnmp1.7/include/version.sh \
 # && sed -i "" "s/disable_functions/#disable_functions/g" /usr/local/php/etc/php.ini \
 # && apt-get -y install supervisor \
