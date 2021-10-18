@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:21.04
 LABEL Author="Okami-Chen"
 LABEL Version="fpm-8.0"
 LABEL Description="PHP FPM 8.0"
@@ -13,7 +13,7 @@ COPY ./authorized_keys /tmp/authorized_keys
 RUN tar zxf lnmp1.8.tar.gz && cd lnmp1.8 \
     && cat /tmp/lnmp.conf > /tmp/lnmp1.8/lnmp.conf \
     && cat /tmp/version.sh > /tmp/lnmp1.8/include/version.sh \
-    && cat /tmp/php-8.0.11.tar.bz2 /tmp/lnmp1.8/src/php-8.0.11.tar.bz2 \
+    && mv /tmp/php-8.0.11.tar.bz2 /tmp/lnmp1.8/src/php-8.0.11.tar.bz2 \
     && LNMP_Auto="y" DBSelect="0" PHPSelect="11" SelectMalloc="1" ./install.sh lnmp \
     && php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');" \
     && php composer-setup.php \

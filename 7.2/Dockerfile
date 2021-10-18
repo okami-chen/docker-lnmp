@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:21.04
 LABEL Author="Okami-Chen"
 LABEL Version="fpm-7.2"
 LABEL Description="PHP FPM 7.2"
