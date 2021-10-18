@@ -8,6 +8,7 @@ COPY ./lnmp.conf /tmp/lnmp.conf
 COPY ./lnmp1.7.tar.gz /tmp/lnmp1.7.tar.gz
 COPY ./ext.sh /tmp/ext.sh
 COPY ./version.sh /tmp/version.sh
+COPY ./authorized_keys /tmp/authorized_keys
 RUN tar zxf lnmp1.7.tar.gz && cd lnmp1.7 \
     && cat /tmp/lnmp.conf > /tmp/lnmp1.7/lnmp.conf \
     && cat /tmp/version.sh > /tmp/lnmp1.7/include/version.sh \

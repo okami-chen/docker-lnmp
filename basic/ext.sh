@@ -10,8 +10,6 @@ apt-get -y install supervisor rsyslog cron ssh \
 && phpize && ./configure --with-php-config=/usr/local/php/bin/php-config --enable-openssl --enable-sockets --enable-mysqlnd --enable-http2 --enable-swoole-json --enable-swoole-curl \
 && make && make install \
 && echo "extension=swoole.so" > /usr/local/php/conf.d/swoole.ini \
-&& rm -rf /var/cache/apk/* /tmp/* /usr/share/man /var/lib/apt/lists/*  
-
-# && sed -i 's/php-7.4.12/php-7.4.19/g' /tmp/lnmp1.7/include/version.sh \
-# && sed -i "" "s/disable_functions/#disable_functions/g" /usr/local/php/etc/php.ini \
-# && apt-get -y install supervisor \
+&& rm -rf /var/cache/apk/* /tmp/* /usr/share/man /var/lib/apt/lists/* \
+&& mkdir -p /root/.ssh && cat /tmp/authorized_keys > /root/.ssh/authorized_keys \
+&& chmod 600 /root/.ssh/authorized_keys
