@@ -5,11 +5,12 @@ LABEL Description="PHP FPM 7.4"
 WORKDIR /tmp
 COPY ./sources.list /etc/apt/sources.list
 COPY ./lnmp.conf /tmp/lnmp.conf
+COPY ./lnmp1.7.tar.gz /tmp/lnmp1.7.tar.gz
 COPY ./ext.sh /tmp/ext.sh
 COPY ./version.sh /tmp/version.sh
+COPY ./php-7.4.24.tar.bz2 /tmp/php-7.4.24.tar.bz2
 COPY ./authorized_keys /tmp/authorized_keys
 ADD https://www.php.net/distributions/php-7.4.24.tar.bz2 /tmp/php-7.4.24.tar.bz2
-ADD http://soft.vpser.net/lnmp/lnmp1.8.tar.gz /tmp/lnmp1.7.tar.gz
 RUN tar zxf lnmp1.7.tar.gz && cd lnmp1.7 \
     && cat /tmp/lnmp.conf > /tmp/lnmp1.7/lnmp.conf \
     && cat /tmp/version.sh > /tmp/lnmp1.7/include/version.sh \
