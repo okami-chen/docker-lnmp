@@ -4,7 +4,9 @@ LABEL Version="php-8.0.11"
 LABEL Description="PHP FPM 7.4"
 ARG timezone
 
-ENV TIMEZONE=${timezone:-"Asia/Shanghai"}
+ENV TIMEZONE=${timezone:-"Asia/Shanghai"} \
+    LC_ALL=C \
+    LC_CTYPE="zh_CN.UTF-8"
 WORKDIR /tmp
 ADD http://mirrors.linuxeye.com/oneinstack-full.tar.gz /tmp/oneinstack-full.tar.gz
 COPY ./sources.list /etc/apt/sources.list
