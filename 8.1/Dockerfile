@@ -8,7 +8,7 @@ COPY ./lnmp.conf /tmp/lnmp.conf
 COPY ./lnmp1.8.tar.gz /tmp/lnmp1.8.tar.gz
 COPY ./ext.sh /tmp/ext.sh
 COPY ./version.sh /tmp/version.sh
-COPY ./php-8.1.0RC4.tar.bz2 /tmp/php-8.1.0RC4.tar.bz2
+ADD https://downloads.php.net/~ramsey/php-8.1.0RC4.tar.bz2 /tmp/php-8.1.0RC4.tar.bz2
 COPY ./authorized_keys /tmp/authorized_keys
 RUN tar zxf lnmp1.8.tar.gz && cd lnmp1.8 \
     && cat /tmp/lnmp.conf > /tmp/lnmp1.8/lnmp.conf \

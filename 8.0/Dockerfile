@@ -8,12 +8,12 @@ COPY ./lnmp.conf /tmp/lnmp.conf
 COPY ./lnmp1.8.tar.gz /tmp/lnmp1.8.tar.gz
 COPY ./ext.sh /tmp/ext.sh
 COPY ./version.sh /tmp/version.sh
-COPY ./php-8.0.11.tar.bz2 /tmp/php-8.0.11.tar.bz2
 COPY ./authorized_keys /tmp/authorized_keys
+ADD https://www.php.net/distributions/php-8.0.12.tar.bz2 /tmp/php-8.0.12.tar.bz2
 RUN tar zxf lnmp1.8.tar.gz && cd lnmp1.8 \
     && cat /tmp/lnmp.conf > /tmp/lnmp1.8/lnmp.conf \
     && cat /tmp/version.sh > /tmp/lnmp1.8/include/version.sh \
-    && mv /tmp/php-8.0.11.tar.bz2 /tmp/lnmp1.8/src/php-8.0.11.tar.bz2 \
+    && mv /tmp/php-8.0.12.tar.bz2 /tmp/lnmp1.8/src/php-8.0.12.tar.bz2 \
     && LNMP_Auto="y" DBSelect="0" PHPSelect="11" SelectMalloc="1" ./install.sh lnmp \
     && php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');" \
     && php composer-setup.php \
