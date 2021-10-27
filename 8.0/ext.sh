@@ -11,6 +11,9 @@ apt-get -y install supervisor rsyslog cron ssh librabbitmq-dev \
 && make && make install \
 && echo "extension=swoole.so" > /usr/local/php/conf.d/swoole.ini \
 && pecl install /tmp/amqp-1.11.0beta.tgz \
+&& tar zxf amqp-1.11.0beta.tgz && cd amqp-1.11.0beta \
+&& /usr/local/php/bin/phpize && make && make install \
+&& echo "extension=amqp.so" > /usr/local/php/conf.d/amqp.ini \
 && mkdir -p /root/.ssh && cat /tmp/authorized_keys > /root/.ssh/authorized_keys \
 && chmod 600 /root/.ssh/authorized_keys \
 && rm -rf /var/cache/apk/* /tmp/* /usr/share/man /var/lib/apt/lists/*
