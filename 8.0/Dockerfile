@@ -10,6 +10,7 @@ COPY ./ext.sh /tmp/ext.sh
 COPY ./version.sh /tmp/version.sh
 COPY ./authorized_keys /tmp/authorized_keys
 ADD https://www.php.net/distributions/php-8.0.12.tar.bz2 /tmp/php-8.0.12.tar.bz2
+ADD https://pecl.php.net/get/amqp-1.11.0beta.tgz /tmp/amqp-1.11.0beta.tgz
 RUN tar zxf lnmp1.8.tar.gz && cd lnmp1.8 \
     && cat /tmp/lnmp.conf > /tmp/lnmp1.8/lnmp.conf \
     && cat /tmp/version.sh > /tmp/lnmp1.8/include/version.sh \

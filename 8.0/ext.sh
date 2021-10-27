@@ -10,6 +10,7 @@ apt-get -y install supervisor rsyslog cron ssh \
 && phpize && ./configure --with-php-config=/usr/local/php/bin/php-config --enable-openssl --enable-sockets --enable-mysqlnd --enable-http2 --enable-swoole-json --enable-swoole-curl \
 && make && make install \
 && echo "extension=swoole.so" > /usr/local/php/conf.d/swoole.ini \
+&& pecl install /var/www/html/extensions/amqp-1.11.0beta.tgz \
 && mkdir -p /root/.ssh && cat /tmp/authorized_keys > /root/.ssh/authorized_keys \
 && chmod 600 /root/.ssh/authorized_keys \
 && rm -rf /var/cache/apk/* /tmp/* /usr/share/man /var/lib/apt/lists/*
