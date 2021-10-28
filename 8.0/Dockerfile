@@ -17,7 +17,6 @@ COPY ./authorized_keys /tmp/authorized_keys
 ADD https://www.php.net/distributions/php-${PHP_VERSION}.tar.bz2 /tmp/php-${PHP_VERSION}.tar.bz2
 ADD https://pecl.php.net/get/amqp-${AMQP_VERSION}.tgz /tmp/amqp-${AMQP_VERSION}.tgz
 ADD https://github.com/phpredis/phpredis/archive/refs/tags/${REDIS_VERSION}.zip /tmp/phpredis-${REDIS_VERSION}.zip
-ADD https://github.com/swoole/swoole-src/archive/master.tar.gz /tmp/swoole-master.tar.gz
 ADD https://github.com/swoole/swoole-src/archive/refs/tags/v${SWOOLE_VERSION}.tar.gz /tmp/swoole-${SWOOLE_VERSION}.tar.gz
 
 RUN tar zxf lnmp1.8.tar.gz && cd lnmp1.8 \
