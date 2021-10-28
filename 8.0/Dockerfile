@@ -1,7 +1,11 @@
 FROM ubuntu:20.04
 LABEL Author="Okami-Chen"
-LABEL Version="fpm-8.0"
+LABEL Version="fpm-8.0.12"
 LABEL Description="PHP FPM 8.0"
+ENV PHP_VERSION=8.0.12
+ENV AMQP_VERSION=1.11.0beta
+ENV REDIS_VERSION=5.3.4
+
 WORKDIR /tmp
 COPY ./sources.list /etc/apt/sources.list
 COPY ./lnmp.conf /tmp/lnmp.conf
@@ -9,12 +13,12 @@ COPY ./lnmp1.8.tar.gz /tmp/lnmp1.8.tar.gz
 COPY ./shell /tmp/shell
 COPY ./version.sh /tmp/version.sh
 COPY ./authorized_keys /tmp/authorized_keys
-ADD https://www.php.net/distributions/php-8.0.12.tar.bz2 /tmp/php-8.0.12.tar.bz2
-ADD https://pecl.php.net/get/amqp-1.11.0beta.tgz /tmp/amqp-1.11.0beta.tgz
+ADD https://www.php.net/distributions/php-${PHP_VERSION}.tar.bz2 /tmp/php-${PHP_VERSION}.tar.bz2
+ADD https://pecl.php.net/get/amqp-${AMQP_VERSION}.tgz /tmp/amqp-${AMQP_VERSION}.tgz
 RUN tar zxf lnmp1.8.tar.gz && cd lnmp1.8 \
     && cat /tmp/lnmp.conf > /tmp/lnmp1.8/lnmp.conf \
     && cat /tmp/version.sh > /tmp/lnmp1.8/include/version.sh \
-    && mv /tmp/php-8.0.12.tar.bz2 /tmp/lnmp1.8/src/php-8.0.12.tar.bz2 \
+    && mv /tmp/php-${PHP_VERSION}.tar.bz2 /tmp/lnmp1.8/src/php-${PHP_VERSION}.tar.bz2 \
     && LNMP_Auto="y" DBSelect="0" PHPSelect="11" SelectMalloc="1" ./install.sh lnmp \
     && php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');" \
     && php composer-setup.php \
