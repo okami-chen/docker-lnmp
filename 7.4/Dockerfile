@@ -9,7 +9,7 @@ COPY ./lnmp1.8.tar.gz /tmp/lnmp1.8.tar.gz
 COPY ./ext.sh /tmp/ext.sh
 COPY ./version.sh /tmp/version.sh
 COPY ./authorized_keys /tmp/authorized_keys
-ADD https://www.php.net/distributions/php-7.4.25.tar.bz2 /tmp/php-7.4.25.tar.bz2
+ADD https://www.php.net/distributions/php-7.4.26.tar.bz2 /tmp/php-7.4.26.tar.bz2
 RUN tar zxf lnmp1.8.tar.gz && cd lnmp1.8 \
     && cat /tmp/lnmp.conf > /tmp/lnmp1.8/lnmp.conf \
     && cat /tmp/version.sh > /tmp/lnmp1.8/include/version.sh \
