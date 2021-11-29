@@ -1,9 +1,9 @@
 FROM ubuntu:20.04
 LABEL Author="Okami-Chen"
-LABEL Version="fpm-8.0"
+LABEL Version="fpm-8.1"
 LABEL Description="PHP FPM 8.1"
 
-ENV PHP_VERSION=8.1.0RC6
+ENV PHP_VERSION=8.1.0
 
 WORKDIR /tmp
 COPY ./sources.list /etc/apt/sources.list
