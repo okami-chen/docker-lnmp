@@ -18,5 +18,5 @@ RUN ln -sf /usr/share/zoneinfo/${TIMEZONE} /etc/localtime \
     && cat /tmp/versions.txt > /tmp/oneinstack/versions.txt \
     && ./oneinstack/install.sh --nginx_option 2 --php_option 10 --phpcache_option 1 --php_extensions fileinfo,redis,swoole \
     && rm -rf /var/cache/apk/* /tmp/* /usr/share/man \
-    && apt-get clean \
+    && apt-get clean && echo "COLUMNS=10000" >> /root/.bashrc \
     && echo -e "\033[42;37m Build Completed :).\033[0m\n"

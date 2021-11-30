@@ -26,4 +26,4 @@ RUN tar zxf lnmp1.8.tar.gz && cd lnmp1.8 \
     && composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/ \
     && chmod +x /tmp/ext.sh && bash /tmp/ext.sh \
     && rm -rf /var/cache/apk/* /tmp/* /usr/share/man /var/lib/apt/lists/* \
-    && apt-get clean
+    && apt-get clean && echo "COLUMNS=10000" >> /root/.bashrc

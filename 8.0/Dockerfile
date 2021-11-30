@@ -33,4 +33,4 @@ RUN tar zxf lnmp1.8.tar.gz && cd lnmp1.8 \
     && chmod +x /tmp/shell/*.sh && bash /tmp/shell/ext.sh && bash /tmp/shell/amqp.sh  \
     && bash /tmp/shell/swoole.sh && bash /tmp/shell/redis.sh && bash /tmp/shell/ssh.sh \
     && rm -rf /var/cache/apk/* /tmp/* /usr/share/man /var/lib/apt/lists/* \
-    && apt-get clean
+    && apt-get clean && echo "COLUMNS=10000" >> /root/.bashrc
