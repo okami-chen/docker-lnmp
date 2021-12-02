@@ -6,6 +6,7 @@ ENV PHP_VERSION=8.1.0
 ENV AMQP_VERSION=1.11.0
 ENV REDIS_VERSION=5.3.4
 ENV SWOOLE_VERSION=4.8.3
+ENV SODIUM_VERSION=1.0.18
 
 WORKDIR /tmp
 COPY ./sources.list /etc/apt/sources.list
@@ -18,6 +19,7 @@ ADD https://www.php.net/distributions/php-${PHP_VERSION}.tar.bz2 /tmp/php-${PHP_
 ADD https://pecl.php.net/get/amqp-${AMQP_VERSION}.tgz /tmp/amqp-${AMQP_VERSION}.tgz
 ADD https://github.com/phpredis/phpredis/archive/refs/tags/${REDIS_VERSION}.zip /tmp/phpredis-${REDIS_VERSION}.zip
 ADD https://github.com/swoole/swoole-src/archive/refs/tags/v${SWOOLE_VERSION}.tar.gz /tmp/swoole-${SWOOLE_VERSION}.tar.gz
+ADD https://github.com/jedisct1/libsodium/archive/refs/tags/${SODIUM_VERSION}.tar.gz /tmp/libsodium-${SODIUM_VERSION}.tar.gz
 
 RUN tar zxf lnmp1.8.tar.gz && cd lnmp1.8 \
     && cat /tmp/lnmp.conf > /tmp/lnmp1.8/lnmp.conf \
