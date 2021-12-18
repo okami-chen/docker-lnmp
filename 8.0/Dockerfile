@@ -36,6 +36,6 @@ RUN tar zxf lnmp1.8.tar.gz && cd lnmp1.8 \
     && composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/ \
     && chmod +x /tmp/shell/*.sh && bash /tmp/shell/ext.sh && bash /tmp/shell/amqp.sh  \
     && bash /tmp/shell/swoole.sh && bash /tmp/shell/redis.sh && bash /tmp/shell/ssh.sh \
-    && bash /tmp/shell/sodium.sh && bash /tmp/shell/mongo.sh \
+    && bash /tmp/shell/mongo.sh \
     && rm -rf /var/cache/apk/* /tmp/* /usr/share/man /var/lib/apt/lists/* \
     && apt-get clean
