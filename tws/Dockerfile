@@ -3,4 +3,4 @@ LABEL maintainer="陈德华 <hua@131.im>" version="1.0" license="MIT" app.name="
 
 WORKDIR /var/www/html
 
-RUN chmod *.sh && bash /var/www/html/mongodb.sh
+RUN chmod +x  /var/www/html/*.sh && bash /var/www/html/mongodb.sh
