@@ -4,7 +4,7 @@ LABEL Version="fpm-7.4"
 LABEL Description="PHP FPM 7.4"
 
 ENV PHP_VERSION=7.4.27
-ENV REDIS_VERSION=5.3.4
+ENV REDIS_VERSION=5.3.5
 
 WORKDIR /tmp
 COPY ./sources.list /etc/apt/sources.list
