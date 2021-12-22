@@ -24,6 +24,8 @@ ADD https://github.com/jedisct1/libsodium/archive/refs/tags/${SODIUM_VERSION}.ta
 RUN tar zxf lnmp1.8.tar.gz && cd lnmp1.8 \
     && cat /tmp/lnmp.conf > /tmp/lnmp1.8/lnmp.conf \
     && cat /tmp/version.sh > /tmp/lnmp1.8/include/version.sh \
+    && apt-get update -y --fix-missing && apt-get upgrade -y \
+    && apt-get -y install supervisor rsyslog cron ssh librabbitmq-dev --no-install-recommends \
     && mv /tmp/php-${PHP_VERSION}.tar.bz2 /tmp/lnmp1.8/src/php-${PHP_VERSION}.tar.bz2 \
     && LNMP_Auto="y" DBSelect="0" PHPSelect="11" SelectMalloc="1" ./install.sh lnmp \
     && php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');" \
@@ -32,9 +34,7 @@ RUN tar zxf lnmp1.8.tar.gz && cd lnmp1.8 \
     && mv composer.phar /usr/local/bin/composer \
     && chmod a+x /usr/local/bin/composer \
     && composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/ \
-    && chmod +x /tmp/shell/*.sh && bash /tmp/shell/ext.sh && bash /tmp/shell/amqp.sh  \
-    && bash /tmp/shell/swoole.sh && bash /tmp/shell/redis.sh && bash /tmp/shell/ssh.sh \
-    && sed -i 's/disable_function/;disable_function/g' /usr/local/php/etc/php.ini \
-    && pecl install mongodb \
+    && chmod +x /tmp/shell/*.sh && bash /tmp/shell/amqp.sh && bash /tmp/shell/swoole.sh \
+    && bash /tmp/shell/redis.sh && bash /tmp/shell/ssh.sh && bash /tmp/shell/mongo.sh \
     && rm -rf /var/cache/apk/* /tmp/* /usr/share/man /var/lib/apt/lists/* \
     && apt-get clean
