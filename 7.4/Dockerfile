@@ -3,8 +3,8 @@ LABEL Author="Okami-Chen"
 LABEL Version="fpm-7.4"
 LABEL Description="PHP FPM 7.4"
 
-ENV PHP_VERSION=7.4.27
-ENV REDIS_VERSION=5.3.5
+ENV PHP_VERSION=7.4.28
+ENV REDIS_VERSION=5.3.7
 
 WORKDIR /tmp
 COPY ./sources.list /etc/apt/sources.list
