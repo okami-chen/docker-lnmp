@@ -7,7 +7,7 @@ ENV PHP_VERSION=7.4.30
 ENV REDIS_VERSION=5.3.7
 
 WORKDIR /tmp
-COPY ./sources.list /etc/apt/sources.list
+# COPY ./sources.list /etc/apt/sources.list
 COPY ./lnmp.conf /tmp/lnmp.conf
 COPY ./lnmp1.8.tar.gz /tmp/lnmp1.8.tar.gz
 COPY ./ext.sh /tmp/ext.sh
