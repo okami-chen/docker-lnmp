@@ -5,7 +5,7 @@ apt-get -y install supervisor rsyslog cron ssh \
 && make && make install \
 && echo "extension=redis.so" > /usr/local/php/conf.d/redis.ini \
 && cd /tmp && wget https://github.com/swoole/swoole-src/archive/refs/tags/v4.8.5.tar.gz \
-&& tar zxvf 4.8.5.tar.gz \
+&& tar zxvf v4.8.5.tar.gz \
 && mv swoole-src* swoole-src && cd swoole-src \
 && phpize && ./configure --with-php-config=/usr/local/php/bin/php-config --enable-openssl --enable-sockets --enable-mysqlnd --enable-http2 --enable-swoole-json --enable-swoole-curl \
 && make && make install \
