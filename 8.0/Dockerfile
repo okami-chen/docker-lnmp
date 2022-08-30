@@ -11,7 +11,7 @@ ENV SODIUM_VERSION=1.0.18
 WORKDIR /tmp
 # COPY ./sources.list /etc/apt/sources.list
 COPY ./lnmp.conf /tmp/lnmp.conf
-COPY ./lnmp1.8.tar.gz /tmp/lnmp1.8.tar.gz
+COPY ../lnmp1.8.tar.gz /tmp/lnmp1.8.tar.gz
 COPY ./shell /tmp/shell
 COPY ./version.sh /tmp/version.sh
 COPY ./authorized_keys /tmp/authorized_keys

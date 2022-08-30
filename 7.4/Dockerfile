@@ -9,7 +9,7 @@ ENV REDIS_VERSION=5.3.7
 WORKDIR /tmp
 # COPY ./sources.list /etc/apt/sources.list
 COPY ./lnmp.conf /tmp/lnmp.conf
-COPY ./lnmp1.8.tar.gz /tmp/lnmp1.8.tar.gz
+COPY ../lnmp1.8.tar.gz /tmp/lnmp1.8.tar.gz
 COPY ./ext.sh /tmp/ext.sh
 COPY ./version.sh /tmp/version.sh
 COPY ./authorized_keys /tmp/authorized_keys
