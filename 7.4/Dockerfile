@@ -3,7 +3,7 @@ LABEL Author="Okami-Chen"
 LABEL Version="fpm-7.4"
 LABEL Description="PHP FPM 7.4"
 
-ENV PHP_VERSION=7.4.30
+ENV PHP_VERSION=7.4.32
 ENV REDIS_VERSION=5.3.7
 
 WORKDIR /tmp
