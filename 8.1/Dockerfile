@@ -11,7 +11,7 @@ ENV SODIUM_VERSION=1.0.18
 WORKDIR /tmp
 # COPY ./sources.list /etc/apt/sources.list
 COPY ./lnmp.conf /tmp/lnmp.conf
-COPY ../lnmp1.8.tar.gz /tmp/lnmp1.8.tar.gz
+COPY ../lnmp1.9.tar.gz /tmp/lnmp1.9.tar.gz
 COPY ./shell /tmp/shell
 COPY ./version.sh /tmp/version.sh
 COPY ./authorized_keys /tmp/authorized_keys
@@ -21,11 +21,11 @@ ADD https://github.com/phpredis/phpredis/archive/refs/tags/${REDIS_VERSION}.zip 
 ADD https://github.com/swoole/swoole-src/archive/refs/tags/v${SWOOLE_VERSION}.tar.gz /tmp/swoole-${SWOOLE_VERSION}.tar.gz
 ADD https://github.com/jedisct1/libsodium/archive/refs/tags/${SODIUM_VERSION}.tar.gz /tmp/libsodium-${SODIUM_VERSION}.tar.gz
 
-RUN tar zxf lnmp1.8.tar.gz && cd lnmp1.8 \
-    && cat /tmp/lnmp.conf > /tmp/lnmp1.8/lnmp.conf \
-    && cat /tmp/version.sh > /tmp/lnmp1.8/include/version.sh \
+RUN tar zxf lnmp1.9.tar.gz && cd lnmp1.9 \
+    && cat /tmp/lnmp.conf > /tmp/lnmp1.9/lnmp.conf \
+    && cat /tmp/version.sh > /tmp/lnmp1.9/include/version.sh \
     && mv /tmp/php-${PHP_VERSION}.tar.bz2 /tmp/lnmp1.8/src/php-${PHP_VERSION}.tar.bz2 \
-    && LNMP_Auto="y" DBSelect="0" PHPSelect="11" SelectMalloc="1" ./install.sh lnmp \
+    && LNMP_Auto="y" DBSelect="0" PHPSelect="12" SelectMalloc="1" ./install.sh lnmp \
     && php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');" \
     && php composer-setup.php \
     && php -r "unlink('composer-setup.php');" \
