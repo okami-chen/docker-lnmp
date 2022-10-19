@@ -24,7 +24,7 @@ ADD https://github.com/jedisct1/libsodium/archive/refs/tags/${SODIUM_VERSION}.ta
 RUN tar zxf lnmp1.9.tar.gz && cd lnmp1.9 \
     && cat /tmp/lnmp.conf > /tmp/lnmp1.9/lnmp.conf \
     && cat /tmp/version.sh > /tmp/lnmp1.9/include/version.sh \
-    && mv /tmp/php-${PHP_VERSION}.tar.bz2 /tmp/lnmp1.8/src/php-${PHP_VERSION}.tar.bz2 \
+    && mv /tmp/php-${PHP_VERSION}.tar.bz2 /tmp/lnmp1.9/src/php-${PHP_VERSION}.tar.bz2 \
     && LNMP_Auto="y" DBSelect="0" PHPSelect="12" SelectMalloc="1" ./install.sh lnmp \
     && php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');" \
     && php composer-setup.php \
